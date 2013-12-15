@@ -1,0 +1,42 @@
+// quick import
+@import '../dep/est/1.1.0/src/all.less';
+
+// override global variables
+@support-old-ie: false;
+@default-font-size: 14px;
+
+
+.global-normalize();
+
+body, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.header, .footer, section {
+    width: 840px;
+    margin: 0 auto;
+}
+
+.h-list {
+    li {
+        display: inline;
+    }
+}
+
+.info-bar {
+    padding: 10px 0; 
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-right: 30px;
+
+            label {
+                margin-right: 6px;
+            }
+        }
+    }
+}

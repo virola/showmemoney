@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>game</title>
+
+<link rel="stylesheet" href="src/main.less">
+<script src="http://img.baidu.com/js/tangram-base-1.5.2.2.js"></script>
+<script src="dep/craftyjs/src/crafty.js"></script>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-6/esl.js"></script>
+
+</head>
+<body>
+<header class="header">
+    <h1>This is a GAME</h1>
+</header>
+<section id="start" style="display:none;">
+    <button id="button-start">Start a new Game</button>
+    <button id="button-username">Enter your username</button>
+
+    <form onsubmit="return false;">
+        <label for="input-username">Username:</label> 
+        <input id="input-username" placeholder="">
+        <br>
+        <button id="button-newuser">Let's start=></button>
+    </form>
+</section>
+
+<section id="scene">
+    <header id="info-bar" class="info-bar">
+        <ul class="h-list">
+            <li id="info-fund"><label>Fund:</label><span></span></li>
+            <li id="info-level"><label>Level:</label><span></span></li>
+            <li id="info-exp"><label>Exp:</label><span></span></li>
+            <li id="info-corpname"><label>Corp name:</label><span></span></li>
+            <li id="info-headcount"><label>Headcount:</label><span></span></li>
+            <li id="info-date"><label>Date:</label><span></span></li>
+        </ul>
+
+    </header>
+    <footer id="ctrl-bar">
+        <!-- <button id="button-corp-create">create a corp</button> -->
+
+        <p>
+            <select id="list-build-type">
+                <option value="base">base</option>
+            </select>
+            <span class="tip"></span>
+            <button id="button-build-create">rent a building</button>
+        </p>
+        <p>
+            <label for="list-staff-type">员工类型:</label>
+            <select id="list-staff-type">
+                <option value="normal">普通员工</option>
+                <option value="hero">专业人士</option>
+            </select>
+            <span class="tip"></span>
+            <label for="input-staff-num">招聘人数:</label>
+            <input id="input-staff-num" >
+            <button id="button-staff-add">hire some building</button>
+        </p>
+    </footer>
+    <div id="main">
+
+    </div>
+    
+</section>
+
+<footer class="footer"></footer>
+<script type="text/javascript">
+    var IMG_SPRITES = 'src/img/sprite.png';
+
+    require.config({
+        waitSeconds: 5,  
+        baseUrl: 'src',
+        packages: [{
+            name: 'etpl',
+            location: '../dep/etpl/2.0.6/src',
+            main: 'main'
+        }]
+    });
+
+    require(['main'], function (main) {
+        main.init();
+    });
+</script>
+</body>
+</html>
