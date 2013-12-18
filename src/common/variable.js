@@ -3,18 +3,21 @@ define(function () {
     var params = {
 
         // money
+        // 资金属性
         fund: {
 
             // 初始资金
             base: 10 * 10000
         },
 
+        // 公司属性
         corp: {
 
             // name
             name: 'X-corp'
         },
 
+        // 时间属性
         date: {
 
             // 起始时间
@@ -22,14 +25,20 @@ define(function () {
         },
 
 
-        // 等级、经验值
+        // 等级、经验值属性
         level: {
 
             // 等级上限
-            step: {
-                1: 100,
-                2: 300
-            }
+            step: [
+                {
+                    level: 1,
+                    exp: 500
+                },
+                {
+                    level: 2,
+                    exp: 2000
+                }
+            ]
         }
 
     };
@@ -40,7 +49,8 @@ define(function () {
                 name: '工作室',
                 cost: 10000,
                 exp: 100,
-                desc: '工作室会有一些描述'
+                desc: '工作室会有一些描述',
+                maxheadcount: 5
             }
         }
     };

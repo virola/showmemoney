@@ -25,20 +25,21 @@ define(function (require) {
     };
 
 
-
-
     function addBuilding(type, context) {
         var buiVar = variable.building.type[type];
 
         var params = {
             fund: context.get('fund') - buiVar.cost,
-            exp: context.get('exp') + buiVar.exp
+            exp: context.get('exp') + buiVar.exp,
+            building: (context.get('building') || 0) + 1
         };
+
+        params.maxheadcountsum = context.get('maxheadcountsum') || 0 
+            + buiVar.maxheadcount;
 
 
         if (params.fund < 0) {
-            console.log('not enough money!!!');
-            alert('not enough money!!!');
+            errorLog('not enough money!!!');
             return false;
         }
 
@@ -70,14 +71,11 @@ define(function (require) {
 
     function drawBuilding() {
         // draw building
-        var crafty = context.get('crafty');
-        var bd = crafty.e('building, 2D, DOM, Color');
+        
 
         var axis = getAxis();
-
-        bd.color('gray').attr({
-            x: axis.x, y: axis.y, w: BUI_CONF.w, h: BUI_CONF.h
-        });
+        require('game/crafty')
+            .addBuilding(axis.x, axis.y, BUI_CONF.w, BUI_CONF.h);
 
         count.x++;
 

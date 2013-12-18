@@ -12,6 +12,10 @@ define(function (require) {
         require(['./building'], function (building) {
             building.init(context);
         });
+
+        require(['./staff'], function (staff) {
+            staff.init(context);
+        });
     }
 
     var q = T.dom.query;
